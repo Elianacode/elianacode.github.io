@@ -50,7 +50,7 @@
     async function sayHello() {
         content = await generateText();
         Office.context.mailbox.item.body.setAsync(
-            content,
+            content.url,
             {
                 coercionType: "html", // Write text as HTML
             },
