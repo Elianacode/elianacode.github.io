@@ -39,8 +39,6 @@
     
     async function sayHello() {
         content = await generateText();
-//         window.alert(content);
-//         console.log(content);
         Office.context.mailbox.item.body.setAsync(
             content,
             {
