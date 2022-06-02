@@ -39,7 +39,7 @@
                     'Content-Type': 'application/json'
                 }
             })
-            return await res['url'];
+            return await res.json();
         } catch (error) {
             console.log(error);
         }
@@ -49,7 +49,7 @@
     async function sayHello() {
         content = await generateText();
         Office.context.mailbox.item.body.setAsync(
-            content,
+            content['url'],
             {
                 coercionType: "text", // Write text as HTML
             },
