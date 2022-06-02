@@ -25,20 +25,22 @@
      * Writes 'Hello world!' to a new message body.
      */
     
-    function generateText() {
+    
+    async function generateText() {
         const url = "https://loripsum.net/api/1";
-        let response;
-        fetch(url)
-            .then(response => response.json())
-            .then(json => console.log(json));
-        //const response = XMLHttpRequest.(url);
-        return response;
+        try {
+            let res = await fetch(url);
+            return await res.text();
+        } catch (error) {
+            console.log(error);
+        }
+        
     }
     
-    function sayHello() {
-        content = generateText();
-        alert(content);
-        //content = "hola";
+    async function sayHello() {
+        content = await generateText();
+        window.alert(content);
+        console.log(content);
         Office.context.mailbox.item.body.setAsync(
             content,
             {
