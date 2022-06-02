@@ -24,8 +24,17 @@
     /**
      * Writes 'Hello world!' to a new message body.
      */
+    
+    function generateText() {
+        const url = "https://loripsum.net/api/1";
+        const response = UrlFetchApp.fetch(url);
+        return response.getContentText();
+    }
+    
     function sayHello() {
-        content = "hola";
+        content = generateText();
+        alert(content);
+        //content = "hola";
         Office.context.mailbox.item.body.setAsync(
             content,
             {
