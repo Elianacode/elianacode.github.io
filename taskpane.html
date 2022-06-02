@@ -27,8 +27,12 @@
     
     function generateText() {
         const url = "https://loripsum.net/api/1";
-        const response = UrlFetchApp.fetch(url);
-        return response.getContentText();
+        let response;
+        fetch(url)
+            .then(response => response.json())
+            .then(json => console.log(json));
+        //const response = XMLHttpRequest.(url);
+        return response;
     }
     
     function sayHello() {
