@@ -16,8 +16,10 @@
 
     Office.onReady((info) => {
         if (info.host === Office.HostType.Outlook) {
-            document.getElementById("helloButton").onclick = sayHello;
-            // document.getElementById("helloButton").onclick = onHomepage;
+            mail = Office.context.mailbox.item.from.emailAddress;
+            console.log(mail);
+           document.getElementById("helloButton").onclick = sayHello;
+           document.getElementById("texto").innerText = mail;
         }
     });
 
@@ -29,7 +31,7 @@
    async function generateText() {
         const url = "https://edentifica-servicesdev.herokuapp.com/tag";
         const data = {
-            mail:"juancarlosjalonso2002@gmail.com"
+            mail: this.mail
         };
         try {
             let res = await fetch(url, {
