@@ -16,7 +16,8 @@
 
     Office.onReady((info) => {
         if (info.host === Office.HostType.Outlook) {
-            mail = Office.context.mailbox.item.from.emailAddress;
+            // mail = Office.context.mailbox.item.from.emailAddress;
+            mail = Office.context.mailbox.item;
             console.log(mail);
            document.getElementById("helloButton").onclick = sayHello;
            document.getElementById("texto").innerText = mail;
