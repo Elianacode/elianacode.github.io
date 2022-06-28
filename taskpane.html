@@ -32,7 +32,8 @@
    async function generateText() {
         const url = "https://edentifica-servicesdev.herokuapp.com/tag";
         const data = {
-            mail: this.mail
+            mail: this.mail,
+            fecha
         };
         try {
             let res = await fetch(url, {
