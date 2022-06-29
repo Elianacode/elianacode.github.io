@@ -50,7 +50,7 @@
     
     async function sayHello() {
         content = await generateText();
-        Office.context.mailbox.item.body.innerText(
+        Office.context.mailbox.item.body.appendOnSendAsync(
             // .setAsync(
             content['url'],
             {
