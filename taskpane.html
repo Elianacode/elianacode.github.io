@@ -16,7 +16,6 @@
 
     Office.onReady((info) => {
         if (info.host === Office.HostType.Outlook) {
-            // mail = Office.context.mailbox.item.from.emailAddress;
             mail = Office.context.mailbox.initialData.userEmailAddress;
             // fecha = Date.toISOString();
             console.log(mail);
