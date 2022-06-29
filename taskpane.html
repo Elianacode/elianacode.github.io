@@ -17,7 +17,6 @@
     Office.onReady((info) => {
         if (info.host === Office.HostType.Outlook) {
             mail = Office.context.mailbox.initialData.userEmailAddress;
-            // fecha = Date.toISOString();
             console.log(mail);
            document.getElementById("helloButton").onclick = sayHello;
            document.getElementById("texto").innerText = mail;
@@ -33,7 +32,6 @@
         const url = "https://edentifica-servicesdev.herokuapp.com/tag";
         const data = {
             mail: this.mail,
-            // fecha
         };
         try {
             let res = await fetch(url, {
@@ -53,7 +51,8 @@
     async function sayHello() {
         content = await generateText();
         Office.context.mailbox.item.body.setAsync(
-            content[''+'url'],
+            content['url'],
+            content['fecha'],
             {
                 coercionType: "text", // Write text as HTML
             },
