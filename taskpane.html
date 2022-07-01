@@ -61,7 +61,7 @@
             function (asyncResult) {
                 if (asyncResult.status ==
                     Office.AsyncResultStatus.Failed) {
-                    write(asyncResult.error.message);
+                        console.log("Action failed with error: " + asyncResult.error.message);
                 }
             }
         );
