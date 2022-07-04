@@ -31,8 +31,7 @@
    async function generateText() {
         const url = "https://edentifica-servicesdev.herokuapp.com/tag";
         const data = {
-            mail: this.mail,
-            fecha
+            mail: this.mail
         };
         try {
             let res = await fetch(url, {
@@ -48,24 +47,6 @@
         }
         
     }
-    
-    // async function sayHello() {
-    //     content = await generateText();
-    //     Office.context.mailbox.item.body.appendOnSendAsync(
-    //         content['url'],
-    //         {
-    //             coercionType: "text", // Write text as HTML
-    //         },
-
-    //         // Callback method to check that setAsync succeeded
-    //         function (asyncResult) {
-    //             if (asyncResult.status ==
-    //                 Office.AsyncResultStatus.Failed) {
-    //                     console.log(asyncResult.error.message);
-    //             }
-    //         }
-    //     );
-    // }
 
     var item;
 
@@ -85,7 +66,7 @@
                         // Specify HTML in the coercionType parameter
                         // of setSelectedDataAsync.
                         item.body.setSelectedDataAsync(
-                            '<b>' + content['url'] + '</b>',
+                            '<b>' + content['url'+'fecha'] + '</b>',
                             { coercionType: Office.CoercionType.Html, 
                             asyncContext: { var3: 1, var4: 2 } },
                             function (asyncResult) {
@@ -103,7 +84,7 @@
                     else {
                         // Body is of text type. 
                         item.body.setSelectedDataAsync(
-                            content['url'],
+                            content['url' + 'fecha'],
                             { coercionType: Office.CoercionType.Text, 
                                 asyncContext: { var3: 1, var4: 2 } },
                             function (asyncResult) {
