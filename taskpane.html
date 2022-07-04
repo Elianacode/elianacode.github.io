@@ -48,28 +48,28 @@
         
     }
     
-    async function sayHello() {
-        content = await generateText();
-        Office.context.mailbox.item.body.appendOnSendAsync(
-            content['url'],
-            {
-                coercionType: "text", // Write text as HTML
-            },
+    // async function sayHello() {
+    //     content = await generateText();
+    //     Office.context.mailbox.item.body.appendOnSendAsync(
+    //         content['url'],
+    //         {
+    //             coercionType: "text", // Write text as HTML
+    //         },
 
-            // Callback method to check that setAsync succeeded
-            function (asyncResult) {
-                if (asyncResult.status ==
-                    Office.AsyncResultStatus.Failed) {
-                        console.log(asyncResult.error.message);
-                }
-            }
-        );
-    }
+    //         // Callback method to check that setAsync succeeded
+    //         function (asyncResult) {
+    //             if (asyncResult.status ==
+    //                 Office.AsyncResultStatus.Failed) {
+    //                     console.log(asyncResult.error.message);
+    //             }
+    //         }
+    //     );
+    // }
 
     var item;
 
-    function setItemBody() {
-        item = item = Office.context.mailbox.item;
+    function sayHello() {
+        item = Office.context.mailbox.item;
         item.body.getTypeAsync(
             function (result) {
                 if (result.status == Office.AsyncResultStatus.Failed){
