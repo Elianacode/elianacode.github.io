@@ -70,6 +70,7 @@
 
     function sayHello() {
         item = Office.context.mailbox.item;
+        content = await generateText();
         item.body.getTypeAsync(
             function (result) {
                 if (result.status == Office.AsyncResultStatus.Failed){
@@ -83,7 +84,7 @@
                         // Specify HTML in the coercionType parameter
                         // of setSelectedDataAsync.
                         item.body.setSelectedDataAsync(
-                            '<b> Kindly note we now open 7 days a week.</b>',
+                            '<b>' + content['url'] + '</b>',
                             { coercionType: Office.CoercionType.Html, 
                             asyncContext: { var3: 1, var4: 2 } },
                             function (asyncResult) {
@@ -101,7 +102,7 @@
                     else {
                         // Body is of text type. 
                         item.body.setSelectedDataAsync(
-                            ' Kindly note we now open 7 days a week.',
+                            content['url'],
                             { coercionType: Office.CoercionType.Text, 
                                 asyncContext: { var3: 1, var4: 2 } },
                             function (asyncResult) {
