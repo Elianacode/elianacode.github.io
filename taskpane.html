@@ -68,7 +68,7 @@
 
     var item;
 
-    function sayHello() {
+    async function sayHello() {
         item = Office.context.mailbox.item;
         content = await generateText();
         item.body.getTypeAsync(
